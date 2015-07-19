@@ -6,7 +6,7 @@
 # catalog-version 0.21
 Name:		texlive-python
 Version:	0.21
-Release:	8
+Release:	9
 Summary:	Embed Python code in LaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/python
