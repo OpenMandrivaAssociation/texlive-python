@@ -1,6 +1,6 @@
 Name:		texlive-python
 Version:	60162
-Release:	1
+Release:	2
 Summary:	Embed Python code in LaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/python
