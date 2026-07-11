@@ -1,40 +1,21 @@
-Name:		texlive-python
-Version:	60162
-Release:	2
+%global tl_name python
+%global tl_revision 60162
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.22
+Release:	%{tl_revision}.1
 Summary:	Embed Python code in LaTeX
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/python
-License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/python.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/python.doc.r%{version}.tar.xz
+License:	gpl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/python.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/python.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package enables you to embed Python code in LaTeX, and
-insert the script's output in the document.
+The package enables you to embed Python code in LaTeX, and insert the
+script's output in the document.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/python/python.sty
-%doc %{_texmfdistdir}/doc/latex/python/README
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
